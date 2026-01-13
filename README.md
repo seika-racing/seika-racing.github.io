@@ -1,3 +1,3 @@
-# seika-racing.github.io
+# Seika Racing
 
 https://seika.racing
