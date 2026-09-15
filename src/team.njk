@@ -1,0 +1,61 @@
+---
+layout: layout.njk
+title: The team
+permalink: /team/
+description: Seika Racing is an amateur crew racing the IMX 40 "Seika" in the Rías Baixas, Galicia. We're open to new members of all experience levels.
+---
+<section class="page-hero page-hero--photo" style="--hero-img: url('/assets/media/conde-gondomar-2025.jpg')">
+  <div class="wrap">
+    <p class="kicker">The team</p>
+    <h1 class="h1">Amateurs. Serious about it.</h1>
+    <p class="lede">We're a crew of friends who race the IMX 40 <em>Seika</em> out of the Rías Baixas. Weekend regattas, the occasional big trophy, and training whenever the wind shows up.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap prose-grid">
+    <div>
+      <h2 class="h2">Who we are</h2>
+      <p>Nobody on this boat does it for a living. We have day jobs, families and the usual excuses. What we share is the same itch: to sail a proper race boat properly, against people who feel the same way.</p>
+      <p>We race mostly in Galicia, north-west Spain, where the Atlantic meets the rías and the wind can go from nothing to everything before lunch. Home waters are the Ría de Arousa and the Ría de Pontevedra, with trips down to Baiona for the bigger regattas.</p>
+    </div>
+    <div>
+      <h2 class="h2">The boat</h2>
+      <p><em>Seika</em> is an IMX 40, a 40-foot one-design racer from X-Yachts. She's quick, she's demanding and she rewards a crew that works together. A full racing crew is around nine people, which is why we're always looking for more.</p>
+      <dl class="specs">
+        <div><dt>Boat</dt><dd>IMX 40 <em>Seika</em></dd></div>
+        <div><dt>Home waters</dt><dd>Ría de Arousa &amp; Ría de Pontevedra</dd></div>
+        <div><dt>Season</dt><dd>Spring to autumn regattas, winter training and boat work</dd></div>
+        <div><dt>Crew</dt><dd>Around nine on race day, more in the wider squad</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" id="join">
+  <div class="wrap">
+    <p class="kicker">Join the crew</p>
+    <h2 class="h1">We're open for new members</h2>
+    <div class="prose-grid">
+      <div>
+        <p class="lede">You don't need experience. You need to turn up, listen, pull when told, and be ready to get wet. Everything else we can teach.</p>
+        <p>Being in the crew means training days, race weekends, a share of the boat work and a place at the bar afterwards. It's a real commitment, but it's the good kind.</p>
+        <h3 class="h3">What we're looking for</h3>
+        <ul class="checks">
+          <li>People who can commit to a few weekends a month in season</li>
+          <li>Beginners with attitude, or experienced sailors who want to race</li>
+          <li>Anyone who wants to learn bow, trim, pit or helm</li>
+          <li>Hands for boat maintenance, media, logistics</li>
+        </ul>
+      </div>
+      <div class="join-card">
+        <h3 class="h3">Get in touch</h3>
+        <p>Tell us a little about yourself: where you're based, whether you've sailed before, and what you're hoping for. We'll invite you to a training day.</p>
+        <a class="btn btn--primary btn--block" href="mailto:{{ site.email }}?subject=I%20want%20to%20sail%20with%20Seika%20Racing">Email {{ site.email }}</a>
+        <a class="btn btn--ghost btn--block" href="{{ site.social.instagram }}" target="_blank" rel="noopener">Message us on Instagram</a>
+        {% set nextTraining = events | upcoming | firstWhere('type', 'training') %}
+        {% if nextTraining %}<p class="small">Next training day: <a href="/calendar/#{{ nextTraining.id }}">{{ nextTraining | dateRange }}, {{ nextTraining.location }}</a></p>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>

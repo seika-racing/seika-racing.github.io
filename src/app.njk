@@ -1,0 +1,80 @@
+---
+layout: layout.njk
+title: The app
+permalink: /app/
+bodyClass: app-page
+description: Seika Racing is a sailing race analytics app. Live guidance on the water, sensor health checks, ORC polars and a full post-race report. Coming to iOS and Android.
+---
+<section class="app-hero">
+  <div class="wrap app-hero__grid">
+    <div>
+      <img class="app-hero__wordmark" src="/assets/media/app-wordmark.png" alt="Seika Racing" width="1600" height="337">
+      <p class="app-hero__status">{{ app.status }}</p>
+      <h1 class="h1">{{ app.oneLiner }}</h1>
+      <p class="lede">{{ app.intro }}</p>
+      <div class="hero__actions">
+        <a class="btn btn--blue" href="mailto:{{ site.email }}?subject=Seika%20Racing%20app%20early%20access">Get early access</a>
+        <a class="btn btn--ghost" href="#how">How it connects</a>
+      </div>
+    </div>
+    <div class="app-hero__art" aria-hidden="true">
+      <img src="/assets/media/app-icon.png" alt="" width="512" height="512">
+    </div>
+  </div>
+</section>
+
+<section class="section section--ink">
+  <div class="wrap">
+    <p class="kicker kicker--blue">What it does</p>
+    <h2 class="h2">Everything between the five-minute gun and the debrief</h2>
+    <ul class="feature-grid">
+      {% for f in app.features %}
+      <li class="feature">
+        <span class="feature__num">{{ loop.index | pad2 }}</span>
+        <h3 class="h3">{{ f.title }}</h3>
+        <p>{{ f.text }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--ink section--ink-alt" id="how">
+  <div class="wrap">
+    <p class="kicker kicker--blue">How it connects</p>
+    <h2 class="h2">Start with your phone. Add the boat when you're ready.</h2>
+    <p class="lede">The app works with whatever you've got. More data in, more insight out.</p>
+    <ol class="tiers">
+      {% for t in app.tiers %}
+      <li class="tier">
+        <p class="tier__kicker">{{ t.kicker }}</p>
+        <h3 class="h3">{{ t.name }}</h3>
+        <p>{{ t.text }}</p>
+        <p class="tier__needs"><strong>You need:</strong> {{ t.needs }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="small">Pricing for the app and the onboard device will be announced when we launch.</p>
+  </div>
+</section>
+
+<section class="section section--ink">
+  <div class="wrap built-on">
+    <div>
+      <p class="kicker kicker--blue">Built on a real boat</p>
+      <h2 class="h2">Tested aboard <em>Seika</em>, in the Ría</h2>
+      <p>This isn't a demo built at a desk. Every feature has been used in anger on our own IMX 40, wired into a real NMEA 2000 network, in the conditions the Galician coast throws at you. If it doesn't survive a wet race day, it doesn't ship.</p>
+      <p><a class="link-more" href="/team/">Meet the crew behind it</a></p>
+    </div>
+    <img src="/assets/media/conde-gondomar-2025.jpg" alt="Seika, an IMX 40, racing upwind with the crew on the rail at the 2025 Trofeo Conde de Gondomar" width="1400" height="934" loading="lazy">
+  </div>
+</section>
+
+<section class="section section--ink section--ink-alt">
+  <div class="wrap join-band">
+    <h2 class="h1">Want in early?</h2>
+    <p>We're onboarding a small group of boats before launch. Tell us about your boat and instruments.</p>
+    <a class="btn btn--blue btn--large" href="mailto:{{ site.email }}?subject=Seika%20Racing%20app%20early%20access">Request early access</a>
+    <p class="small">ORC certificate data © ORC, used with attribution. Charts include EMODnet bathymetry and OpenSeaMap seamarks.</p>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+permalink: /calendar.ics
+eleventyExcludeFromCollections: true
+---
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Seika Racing//seika.racing//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Seika Racing
+X-WR-TIMEZONE:Europe/Madrid
+X-WR-CALDESC:Regattas\, training days and boat work for the Seika Racing crew.
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+{% for e in events -%}
+BEGIN:VEVENT
+UID:{{ e.id }}@seika.racing
+DTSTAMP:{{ '' | icsStamp }}
+DTSTART;VALUE=DATE:{{ e.start | icsDate }}
+DTEND;VALUE=DATE:{{ e | icsDateEnd }}
+SUMMARY:{{ e.title | icsText | safe }}{% if e.tbc %} (dates TBC){% endif %}
+LOCATION:{{ e.location | icsText | safe }}
+DESCRIPTION:{{ (e.notes or '') | icsText | safe }}{% if e.tbc %}\nDates provisional.{% endif %}\nhttps://seika.racing/calendar/#{{ e.id }}
+URL:https://seika.racing/calendar/#{{ e.id }}
+CATEGORIES:{{ e.type | upper }}
+STATUS:{% if e.tbc %}TENTATIVE{% else %}CONFIRMED{% endif %}
+END:VEVENT
+{% endfor -%}
+END:VCALENDAR

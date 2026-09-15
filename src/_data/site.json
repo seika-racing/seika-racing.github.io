@@ -1,0 +1,23 @@
+{
+  "name": "Seika Racing",
+  "url": "https://seika.racing",
+  "tagline": "An amateur sailing team racing the Rías of Galicia.",
+  "description": "Seika Racing is an amateur sailing team racing an IMX 40 out of the Rías Baixas, Galicia. We're open to new crew, we film what we do, and we're building a race analytics app.",
+  "email": "cheers@seika.racing",
+  "boat": {
+    "name": "Seika",
+    "model": "IMX 40",
+    "homeWaters": "Ría de Arousa and Ría de Pontevedra, Galicia"
+  },
+  "social": {
+    "instagram": "https://instagram.com/seika.racing",
+    "youtube": "https://youtube.com/@seika.racing",
+    "youtubeChannelId": "UCovRLzIeQJJQyuvgp_gXhRA"
+  },
+  "nav": [
+    { "label": "Team", "url": "/team/" },
+    { "label": "Calendar", "url": "/calendar/" },
+    { "label": "Watch", "url": "/watch/" },
+    { "label": "App", "url": "/app/" }
+  ]
+}

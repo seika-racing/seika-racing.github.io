@@ -1,0 +1,15 @@
+{
+  "name": "seika-racing-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "seika.racing — Seika Racing sailing team and app",
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.0"
+  }
+}

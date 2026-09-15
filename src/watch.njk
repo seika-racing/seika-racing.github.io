@@ -1,0 +1,37 @@
+---
+layout: layout.njk
+title: Watch
+permalink: /watch/
+description: Onboard videos from Seika Racing, an amateur sailing team racing an IMX 40 in Galicia.
+---
+<section class="page-hero">
+  <div class="wrap">
+    <p class="kicker">Watch</p>
+    <h1 class="h1">Camera always rolling</h1>
+    <p class="lede">Onboard footage from races and training in the rías. New videos land on YouTube first, with the short stuff on Instagram.</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="{{ site.social.youtube }}?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
+      <a class="btn btn--ghost" href="{{ site.social.instagram }}" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <ul class="video-grid">
+      {% for v in videos %}
+      <li class="video-card{% if v.isShort %} video-card--vertical{% endif %}">
+        <div class="yt{% if v.isShort %} yt--vertical{% endif %}" data-yt="{{ v.id }}">
+          <button type="button" class="yt__play" aria-label="Play: {{ v.title }}">
+            <img src="{{ v.thumbnail }}" alt="" loading="lazy" width="480" height="360">
+            <span class="yt__icon"></span>
+          </button>
+        </div>
+        <h2 class="video-card__title"><a href="{{ v.url }}" target="_blank" rel="noopener">{{ v.title }}</a></h2>
+        <p class="small">{{ v.published | monthLong }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="small">This page updates from our YouTube channel every time the site is built.</p>
+  </div>
+</section>

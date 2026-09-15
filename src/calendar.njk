@@ -1,0 +1,77 @@
+---
+layout: layout.njk
+title: Calendar
+permalink: /calendar/
+description: Seika Racing's public calendar of regattas, training days and boat work in Galicia. Subscribe to the iCal feed.
+---
+<section class="page-hero">
+  <div class="wrap">
+    <p class="kicker">Calendar</p>
+    <h1 class="h1">Where we'll be</h1>
+    <p class="lede">Regattas, training and boat work for the season. Crew and friends can subscribe and get it straight into their phone calendar.</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="webcal://seika.racing/calendar.ics">Subscribe (iCal)</a>
+      <a class="btn btn--ghost" href="https://calendar.google.com/calendar/r?cid=https%3A%2F%2Fseika.racing%2Fcalendar.ics" target="_blank" rel="noopener">Add to Google Calendar</a>
+    </div>
+    <p class="small">Or paste <code>https://seika.racing/calendar.ics</code> into any calendar app. Dates marked TBC are provisional.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="legend">
+      <span class="legend__item legend__item--regatta">Regatta</span>
+      <span class="legend__item legend__item--training">Training</span>
+      <span class="legend__item legend__item--boatwork">Boat work</span>
+      <span class="legend__item legend__item--social">Social</span>
+    </div>
+
+    {% set up = events | upcoming %}
+    {% if up.length %}
+      {% for month in up | byMonth %}
+      <h2 class="h3 month-head">{{ month.label }}</h2>
+      <ol class="event-list">
+        {% for e in month.events %}
+        <li class="event event--{{ e.type }}" id="{{ e.id }}">
+          <div class="event__date">
+            <span class="event__weekday">{{ e.start | weekday }}</span>
+            <span class="event__day">{{ e.start | day }}</span>
+            <span class="event__month">{{ e.start | monthShort }}</span>
+          </div>
+          <div class="event__body">
+            <h3 class="event__title">{{ e.title }}{% if e.tbc %} <span class="tag">dates TBC</span>{% endif %}</h3>
+            <p class="event__meta">{{ e | dateRange }} · {{ e.location }} · <span class="event__type">{{ e.type }}</span></p>
+            {% if e.notes %}<p class="event__notes">{{ e.notes }}</p>{% endif %}
+            {% if e.url %}<p class="event__notes"><a href="{{ e.url }}" target="_blank" rel="noopener">Event website</a></p>{% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+      {% endfor %}
+    {% else %}
+      <p class="lede">Nothing scheduled yet. Check back soon, or subscribe to the feed and let it come to you.</p>
+    {% endif %}
+
+    {% set gone = events | past %}
+    {% if gone.length %}
+    <details class="past">
+      <summary class="h3">Past events</summary>
+      <ol class="event-list event-list--past">
+        {% for e in gone %}
+        <li class="event event--{{ e.type }}" id="{{ e.id }}">
+          <div class="event__date">
+            <span class="event__day">{{ e.start | day }}</span>
+            <span class="event__month">{{ e.start | monthShort }} {{ e.start | year }}</span>
+          </div>
+          <div class="event__body">
+            <h3 class="event__title">{{ e.title }}</h3>
+            <p class="event__meta">{{ e | dateRange }} · {{ e.location }}</p>
+            {% if e.notes %}<p class="event__notes">{{ e.notes }}</p>{% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </details>
+    {% endif %}
+  </div>
+</section>

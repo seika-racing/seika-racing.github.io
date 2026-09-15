@@ -1,0 +1,126 @@
+---
+layout: layout.njk
+bodyClass: home
+description: Seika Racing is an amateur sailing team racing an IMX 40 out of the Rías Baixas, Galicia. We're open to new crew, we film what we do, and we're building a race analytics app.
+---
+<section class="hero" data-hero>
+  <video class="hero__video" muted loop playsinline preload="none"
+         poster="/assets/media/hero-poster.jpg"
+         data-src-desktop-webm="/assets/media/hero-1280.webm"
+         data-src-desktop-mp4="/assets/media/hero-1280.mp4"
+         data-src-mobile-mp4="/assets/media/hero-720.mp4"
+         aria-hidden="true" tabindex="-1"></video>
+  <div class="hero__shade"></div>
+  <div class="hero__content wrap">
+    <img class="hero__logo" src="/assets/media/logo.svg" alt="Seika Racing" width="454" height="184">
+    <p class="hero__tag">An amateur crew racing the Rías of Galicia.<br>Open to new members. Camera always rolling.</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="/team/#join">Sail with us</a>
+      <a class="btn btn--ghost" href="/app/">The app</a>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#doors" aria-label="Scroll down"><span></span></a>
+</section>
+
+<section id="doors" class="section section--doors">
+  <div class="wrap doors">
+    <a class="door" href="/team/">
+      <span class="door__kicker">01</span>
+      <h2 class="door__title">The team</h2>
+      <p>Who we are, the boat, and how to get a spot on the rail.</p>
+      <span class="door__more">Meet the crew</span>
+    </a>
+    <a class="door" href="/calendar/">
+      <span class="door__kicker">02</span>
+      <h2 class="door__title">Calendar</h2>
+      <p>Regattas, training days and boat work. Subscribe from your phone.</p>
+      <span class="door__more">See what's next</span>
+    </a>
+    <a class="door" href="/watch/">
+      <span class="door__kicker">03</span>
+      <h2 class="door__title">Watch</h2>
+      <p>Onboard footage, races and the odd perfect gybe.</p>
+      <span class="door__more">Latest videos</span>
+    </a>
+    <a class="door door--app" href="/app/">
+      <span class="door__kicker">04</span>
+      <h2 class="door__title">The app</h2>
+      <p>Race analytics built on our own boat. Coming to iOS and Android.</p>
+      <span class="door__more">Learn more</span>
+    </a>
+  </div>
+</section>
+
+{% set next = events | upcoming | limit(3) %}
+{% if next.length %}
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <h2 class="h2">Next up</h2>
+      <a class="link-more" href="/calendar/">Full calendar</a>
+    </div>
+    <ol class="event-list">
+      {% for e in next %}
+      <li class="event event--{{ e.type }}">
+        <div class="event__date">
+          <span class="event__day">{{ e.start | day }}</span>
+          <span class="event__month">{{ e.start | monthShort }}</span>
+        </div>
+        <div class="event__body">
+          <h3 class="event__title">{{ e.title }}{% if e.tbc %} <span class="tag">dates TBC</span>{% endif %}</h3>
+          <p class="event__meta">{{ e | dateRange }} · {{ e.location }} · <span class="event__type">{{ e.type }}</span></p>
+          {% if e.notes %}<p class="event__notes">{{ e.notes }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section__head">
+      <h2 class="h2">Latest from the water</h2>
+      <a class="link-more" href="/watch/">All videos</a>
+    </div>
+    {% set latest = videos[0] %}
+    <div class="feature-video">
+      <div class="yt{% if latest.isShort %} yt--vertical{% endif %}" data-yt="{{ latest.id }}">
+        <button type="button" class="yt__play" aria-label="Play: {{ latest.title }}">
+          <img src="{{ latest.thumbnail }}" alt="" loading="lazy" width="480" height="360">
+          <span class="yt__icon"></span>
+        </button>
+      </div>
+      <div class="feature-video__text">
+        <p class="kicker">Latest video</p>
+        <h3 class="h3">{{ latest.title }}</h3>
+        <p>We're putting the camera on everything this season: onboard during races, the drills that go wrong, the drills that go right, and what happens between them.</p>
+        <p><a class="btn btn--primary" href="{{ site.social.youtube }}" target="_blank" rel="noopener">Subscribe on YouTube</a></p>
+        <p><a class="link-more" href="{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram @seika.racing</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--app-teaser">
+  <div class="wrap app-teaser">
+    <div class="app-teaser__text">
+      <p class="kicker kicker--blue">Seika Racing app</p>
+      <h2 class="h2">{{ app.oneLiner }}</h2>
+      <p>{{ app.intro }}</p>
+      <a class="btn btn--blue" href="/app/">See what it does</a>
+    </div>
+    <div class="app-teaser__art" aria-hidden="true">
+      <img src="/assets/media/app-icon.png" alt="" width="512" height="512">
+    </div>
+  </div>
+</section>
+
+<section class="section section--join">
+  <div class="wrap join-band">
+    <h2 class="h1">Want a spot on the rail?</h2>
+    <p>You don't need a CV, a boat or a decade at sea. Turn up keen, learn fast and hold on.</p>
+    <a class="btn btn--primary btn--large" href="/team/#join">Join the crew</a>
+  </div>
+</section>

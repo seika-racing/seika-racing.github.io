@@ -1,0 +1,56 @@
+{
+  "name": "Seika Racing",
+  "status": "Private alpha — coming to iOS and Android",
+  "oneLiner": "Race analytics for real boats. Live guidance on the water, the full story after.",
+  "intro": "Seika Racing turns your boat's instrument data into race-time guidance and a post-race report you'll actually read. Built aboard an IMX 40, tested in Galician wind and chop.",
+  "features": [
+    {
+      "title": "Chart first, hands free",
+      "text": "Your boat, your trail, laylines and polar-performance colouring on one screen. It connects on its own and records every sail the moment you start moving. MARK START and MARK FINISH are the only buttons you'll touch during a race."
+    },
+    {
+      "title": "Start-line tools",
+      "text": "Distance to the line, time to burn and line bias, so the last two minutes before the gun are about sailing, not arithmetic."
+    },
+    {
+      "title": "Course planning",
+      "text": "A library of the fixed marks on your local circuit, published routes, custom courses and start-line pins. Set the course once, share it with the crew."
+    },
+    {
+      "title": "The post-race report",
+      "text": "Every leg, every tack and gybe. Time-weighted polar percentage, tack count and recovery, lost time per leg, and your best and worst legs called out plainly."
+    },
+    {
+      "title": "Measured against your rating",
+      "text": "Pull your boat's actual ORC certificate and see performance against your own polars, not a generic one. Data © ORC."
+    },
+    {
+      "title": "Sensor health",
+      "text": "Physics-based cross-checks that catch a dead wind sensor, a stuck compass or a miscalibrated log, with plain-language findings, the evidence, and what to check. Plus an inventory of every device on the boat network."
+    },
+    {
+      "title": "Charts that suit the job",
+      "text": "Standard, nautical chart with EMODnet bathymetry, or satellite. All with OpenSeaMap seamarks."
+    }
+  ],
+  "tiers": [
+    {
+      "name": "Phone only",
+      "kicker": "Free",
+      "text": "Position, speed and course over ground from your phone's GPS. No wind data, but a full track and report for every race.",
+      "needs": "A phone."
+    },
+    {
+      "name": "Multiplexer",
+      "kicker": "Boat instruments",
+      "text": "Connect to a WiFi multiplexer already on many boats and get wind, depth, heading and boat speed streamed straight into the app over NMEA 0183.",
+      "needs": "A WiFi multiplexer, such as a Vela Navega, on the boat network."
+    },
+    {
+      "name": "Full rig",
+      "kicker": "Seika box",
+      "text": "A small onboard server that reads the whole NMEA 2000 network, records everything even when the phone is below deck, and serves the app over the boat's WiFi. Logs can be imported later over SFTP.",
+      "needs": "Our onboard device, built on a Raspberry Pi and SignalK. Details soon."
+    }
+  ]
+}

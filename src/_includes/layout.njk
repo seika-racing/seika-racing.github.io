@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ title or site.name }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}/assets/media/{{ ogImage or 'og-image.jpg' }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#04223A">
+  <link rel="icon" type="image/svg+xml" href="/assets/media/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/media/apple-touch-icon.png">
+  <link rel="alternate" type="text/calendar" title="Seika Racing calendar" href="/calendar.ics">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,700;1,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="{{ bodyClass }}">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header{% if page.url == '/' %} site-header--home{% endif %}">
+    <div class="wrap site-header__bar">
+      <a class="site-header__brand" href="/" aria-label="Seika Racing home">
+        <img src="/assets/media/logo.svg" alt="" width="454" height="184">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          {% for item in site.nav %}
+          <li><a href="{{ item.url }}"{% if page.url.startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {% endfor %}
+          <li class="site-nav__cta"><a class="btn btn--small" href="/team/#join">Join the crew</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__grid">
+      <div>
+        <img class="site-footer__logo" src="/assets/media/logo.svg" alt="Seika Racing" width="454" height="184">
+        <p class="site-footer__tag">{{ site.tagline }}</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="site-footer__links">
+          {% for item in site.nav %}<li><a href="{{ item.url }}">{{ item.label }}</a></li>{% endfor %}
+          <li><a href="/team/#join">Join the crew</a></li>
+          <li><a href="/calendar.ics">Calendar feed</a></li>
+        </ul>
+      </nav>
+      <ul class="site-footer__links">
+        <li><a href="{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="{{ site.social.youtube }}" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      </ul>
+    </div>
+    <div class="wrap site-footer__legal">
+      <p>© {{ '' | isoNow | year }} Seika Racing · Galicia, Spain. Photo of Seika at the Trofeo Conde de Gondomar © Lalo R. Villar. ORC data © ORC.</p>
+    </div>
+  </footer>
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
