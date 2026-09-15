@@ -72,5 +72,9 @@
     </div>
   </footer>
   <script src="/assets/js/main.js" defer></script>
+  {% if site.analytics.cloudflareToken %}
+  <!-- Cloudflare Web Analytics: cookieless, no personal data, no consent banner needed -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.analytics.cloudflareToken }}"}'></script>
+  {% endif %}
 </body>
 </html>

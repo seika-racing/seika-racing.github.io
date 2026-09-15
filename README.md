@@ -58,6 +58,12 @@ automatically.
 The Watch page and the home page pull the latest uploads from the YouTube channel at build time.
 Nothing to edit. To force a refresh, run the "Build and deploy" workflow from the Actions tab.
 
+## Analytics
+
+Cloudflare Web Analytics, cookieless. The beacon token lives in `src/_data/site.json`
+under `analytics.cloudflareToken`; leave it empty to disable. Dashboard:
+https://dash.cloudflare.com → Analytics & Logs → Web Analytics.
+
 ## Deployment
 
 GitHub Pages must be set to deploy from **GitHub Actions** (Settings → Pages → Source),

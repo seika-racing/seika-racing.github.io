@@ -4,6 +4,9 @@
   "tagline": "An amateur sailing team racing the Rías of Galicia.",
   "description": "Seika Racing is an amateur sailing team racing an IMX 40 out of the Rías Baixas, Galicia. We're open to new crew, we film what we do, and we're building a race analytics app.",
   "email": "cheers@seika.racing",
+  "analytics": {
+    "cloudflareToken": "ba9a138abb12412da5b0503e265cb3cc"
+  },
   "boat": {
     "name": "Seika",
     "model": "IMX 40",
