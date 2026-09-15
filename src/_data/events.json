@@ -1,5 +1,14 @@
 [
   {
+    "id": "2026-11-14-training-combarro",
+    "title": "Crew training day",
+    "type": "training",
+    "start": "2026-11-14",
+    "location": "Combarro, Ría de Pontevedra",
+    "notes": "Boat handling, starts and mark roundings ahead of the Aguete Christmas series. New crew welcome, no experience needed.",
+    "tbc": false
+  },
+  {
     "id": "2026-11-21-regata-navidad-aguete-1",
     "title": "28ª Regata de Navidad de Cruceros de Aguete, day 1",
     "type": "regatta",
