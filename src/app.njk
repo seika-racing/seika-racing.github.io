@@ -13,7 +13,7 @@ description: Seika Racing is a sailing race analytics app. Live guidance on the 
       <h1 class="h1">{{ app.oneLiner }}</h1>
       <p class="lede">{{ app.intro }}</p>
       <div class="hero__actions">
-        <a class="btn btn--blue" href="mailto:{{ site.email }}?subject=Seika%20Racing%20app%20early%20access">Get early access</a>
+        <a class="btn btn--blue" href="#early-access">Get early access</a>
         <a class="btn btn--ghost" href="#how">How it connects</a>
       </div>
     </div>
@@ -70,11 +70,23 @@ description: Seika Racing is a sailing race analytics app. Live guidance on the 
   </div>
 </section>
 
-<section class="section section--ink section--ink-alt">
+<section class="section section--ink section--ink-alt" id="early-access">
   <div class="wrap join-band">
+    <p class="kicker kicker--blue">Early access</p>
     <h2 class="h1">Want in early?</h2>
-    <p>We're onboarding a small group of boats before launch. Tell us about your boat and instruments.</p>
+    <p>Join the waiting list and you'll be first to get the TestFlight and Android beta links, plus the occasional update from the boat. No spam, unsubscribe any time.</p>
+    {% if site.waitlist.kitFormId %}
+    <form class="waitlist" action="https://app.kit.com/forms/{{ site.waitlist.kitFormId }}/subscriptions" method="post" data-waitlist>
+      <label class="sr-only" for="waitlist-email">Email address</label>
+      <div class="waitlist__row">
+        <input id="waitlist-email" class="waitlist__input" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" inputmode="email" required>
+        <button class="btn btn--blue" type="submit">Join the waiting list</button>
+      </div>
+      <p class="waitlist__msg small" aria-live="polite" data-waitlist-msg></p>
+    </form>
+    {% else %}
     <a class="btn btn--blue btn--large" href="mailto:{{ site.email }}?subject=Seika%20Racing%20app%20early%20access">Request early access</a>
+    {% endif %}
     <p class="small">ORC certificate data © ORC, used with attribution. Charts include EMODnet bathymetry and OpenSeaMap seamarks.</p>
   </div>
 </section>

@@ -47,6 +47,39 @@
     }
   }
 
+  // ---- Waiting list: submit to Kit in the background, stay on the page ----
+  var form = document.querySelector("[data-waitlist]");
+  if (form && window.fetch) {
+    var msg = form.querySelector("[data-waitlist-msg]");
+    var button = form.querySelector("button[type=submit]");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.classList.remove("is-error");
+      button.disabled = true;
+      msg.textContent = "One moment…";
+      fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ email_address: form.email_address.value })
+      })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+        .then(function (res) {
+          if (!res.ok || res.data.status === "failed" || res.data.errors) {
+            var errs = res.data.errors || {};
+            throw new Error((errs.messages && errs.messages[0]) || "Subscription failed");
+          }
+          form.classList.add("is-done");
+          msg.textContent = "You're on the list. Check your inbox for a confirmation email.";
+        })
+        .catch(function (err) {
+          form.classList.add("is-error");
+          button.disabled = false;
+          var detail = err && err.message && err.message !== "Subscription failed" ? err.message + ". " : "";
+          msg.textContent = detail + "That didn't go through. Please try again, or email " + (document.querySelector('a[href^="mailto:"]') || {}).textContent + ".";
+        });
+    });
+  }
+
   // ---- Click-to-load YouTube embeds ----
   document.querySelectorAll("[data-yt]").forEach(function (box) {
     var btn = box.querySelector(".yt__play");
