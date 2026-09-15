@@ -1,48 +1,39 @@
 [
   {
-    "id": "2026-09-training-arousa",
-    "title": "Crew training day",
-    "type": "training",
-    "start": "2026-09-27",
-    "location": "Ría de Arousa",
-    "notes": "Boat handling and spinnaker drills. New crew welcome — no experience needed.",
-    "tbc": false
-  },
-  {
-    "id": "2026-10-autumn-league",
-    "title": "Autumn league, race 1",
+    "id": "2026-11-21-regata-navidad-aguete-1",
+    "title": "28ª Regata de Navidad de Cruceros de Aguete, day 1",
     "type": "regatta",
-    "start": "2026-10-11",
-    "location": "Ría de Pontevedra",
-    "notes": "First race of the club autumn series.",
-    "tbc": true
-  },
-  {
-    "id": "2026-10-training",
-    "title": "Crew training day",
-    "type": "training",
-    "start": "2026-10-25",
-    "location": "Ría de Arousa",
-    "notes": "Starts and mark roundings.",
-    "tbc": false
-  },
-  {
-    "id": "2026-11-autumn-league-2",
-    "title": "Autumn league, race 2",
-    "type": "regatta",
-    "start": "2026-11-08",
-    "location": "Ría de Pontevedra",
-    "tbc": true
-  },
-  {
-    "id": "2026-11-maintenance",
-    "title": "Boat maintenance weekend",
-    "type": "boatwork",
     "start": "2026-11-21",
-    "end": "2026-11-22",
-    "location": "Marina",
-    "notes": "Winter prep: rig check, sail inventory, bottom clean. Many hands make light work.",
+    "location": "R.C.M. Aguete, Ría de Pontevedra",
+    "notes": "First race day of the Aguete Christmas series. Autonómica level, organised by Real Club de Mar de Aguete.",
     "tbc": false
+  },
+  {
+    "id": "2026-11-28-regata-navidad-aguete-2",
+    "title": "28ª Regata de Navidad de Cruceros de Aguete, day 2",
+    "type": "regatta",
+    "start": "2026-11-28",
+    "location": "R.C.M. Aguete, Ría de Pontevedra",
+    "notes": "Second race day of the Aguete Christmas series.",
+    "tbc": false
+  },
+  {
+    "id": "2026-12-12-regata-navidad-aguete-3",
+    "title": "28ª Regata de Navidad de Cruceros de Aguete, day 3",
+    "type": "regatta",
+    "start": "2026-12-12",
+    "location": "R.C.M. Aguete, Ría de Pontevedra",
+    "notes": "Final race day of the Aguete Christmas series.",
+    "tbc": false
+  },
+  {
+    "id": "2027-01-interclubes-pontevedra",
+    "title": "13º Interclubes Pontevedra",
+    "type": "regatta",
+    "start": "2027-01-30",
+    "location": "Ría de Pontevedra",
+    "notes": "Winter series of regattas in the Ría de Pontevedra, running from late January to mid April. Not yet announced; individual race days will be added once the notice of race is out.",
+    "tbc": true
   },
   {
     "id": "2027-07-conde-gondomar",
@@ -55,7 +46,7 @@
     "tbc": true
   },
   {
-    "id": "2026-07-conde-gondomar",
+    "id": "2025-07-conde-gondomar",
     "title": "50º Trofeo Conde de Gondomar",
     "type": "regatta",
     "start": "2025-07-10",
